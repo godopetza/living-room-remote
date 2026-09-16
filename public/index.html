@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#121816" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="TV Remote" />
+    <link rel="icon" href="/icon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Living Room · Remote</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <p class="eyebrow" id="tv-name">MY TV</p>
+          <h1><span id="room-name">Living room</span><span>.</span></h1>
+        </div>
+        <button id="status" class="connection" aria-label="Check TV connection">
+          <i></i><span>Connecting</span>
+        </button>
+      </header>
+      <nav class="tabs" aria-label="Control mode">
+        <button class="selected" data-mode="remote" aria-pressed="true">
+          Remote</button
+        ><button data-mode="touch" aria-pressed="false">Touch TV</button
+        ><button data-mode="keyboard" aria-pressed="false">Keyboard</button>
+      </nav>
+      <section id="remote" class="panel">
+        <div class="pad-top">
+          <span>ONE HAND. EVERY CONTROL.</span><span class="tiny">TV</span>
+        </div>
+        <div class="dpad">
+          <button data-key="up" class="up" aria-label="Up">⌃</button
+          ><button data-key="left" class="left" aria-label="Left">‹</button
+          ><button data-key="ok" class="ok" aria-label="Select">OK</button
+          ><button data-key="right" class="right" aria-label="Right">›</button
+          ><button data-key="down" class="down" aria-label="Down">⌄</button>
+        </div>
+        <p class="hint">Tap to move. Hold an arrow to keep going.</p>
+      </section>
+      <section id="touch" class="panel" hidden>
+        <div class="pad-top">
+          <span>TOUCH WHAT YOU SEE</span>
+          <div class="screen-actions">
+            <button id="refresh" class="text-button">Refresh</button
+            ><button
+              id="fullscreen"
+              class="text-button"
+              aria-label="Open TV screen fullscreen"
+            >
+              ⛶ Fullscreen
+            </button>
+          </div>
+        </div>
+        <div id="screen-box">
+          <img
+            id="screen"
+            alt="Current TV screen; tap to click or swipe to scroll"
+            draggable="false"
+            hidden
+          />
+          <div id="screen-empty">
+            <span class="screen-glyph">▣</span>
+            <p>See your TV here.</p>
+            <button id="show-screen">Start live view</button>
+          </div>
+          <span id="touch-dot" hidden></span
+          ><button id="exit-fullscreen" aria-label="Exit fullscreen">
+            ✕ Close
+          </button>
+        </div>
+        <div class="live-row">
+          <span id="screen-time">Live view starts in Touch TV.</span
+          ><label><input id="live" type="checkbox" checked /> Live view</label>
+        </div>
+        <p class="hint">
+          Tap a button on the picture. Swipe to scroll.<br />Turn your phone
+          sideways for a bigger view.
+        </p>
+        <div class="scroll-row">
+          <button data-scroll="up">↑ Scroll up</button
+          ><button data-scroll="down">↓ Scroll down</button>
+        </div>
+      </section>
+      <section id="keyboard" class="panel" hidden>
+        <div class="pad-top"><span>LESS CLICKING. MORE TYPING.</span></div>
+        <label class="input-label" for="text"
+          >What would you like to type?</label
+        ><textarea
+          id="text"
+          maxlength="300"
+          rows="4"
+          placeholder="Search a title, team or channel…"
+          autocomplete="off"
+        ></textarea>
+        <p class="hint left-hint">
+          Select a text field on the TV first.<br />English letters and symbols
+          supported, except %.
+        </p>
+        <button id="send-text" class="primary">
+          Send to TV <span>↗</span>
+        </button>
+        <div class="scroll-row">
+          <button data-key="delete">⌫ Delete</button
+          ><button data-key="enter">↵ Enter</button>
+        </div>
+      </section>
+      <div class="navigation">
+        <button data-key="back"><span>↶</span>Back</button
+        ><button data-key="home">
+          <svg viewBox="0 0 24 24">
+            <path d="m3 10 9-7 9 7v11h-6v-7H9v7H3Z" /></svg
+          >Home</button
+        ><button data-key="menu"><span>☰</span>Menu</button>
+      </div>
+      <div class="playback">
+        <div class="volume">
+          <button data-key="volumeDown" aria-label="Volume down">−</button
+          ><span>VOLUME</span
+          ><button data-key="volumeUp" aria-label="Volume up">+</button>
+        </div>
+        <button class="mute" data-key="mute" aria-label="Mute">Mute</button
+        ><button class="play" data-key="play" aria-label="Play or pause">
+          <svg viewBox="0 0 28 24">
+            <path d="m3 4 10 8L3 20Z" />
+            <path d="M19 4v16M25 4v16" />
+          </svg>
+        </button>
+      </div>
+      <details>
+        <summary>Open an app <span>＋</span></summary>
+        <div class="apps">
+          <button data-app="vlc">VLC</button
+          ><button data-app="cast">T-Cast</button>
+        </div>
+      </details>
+      <details>
+        <summary>Personalize <span>＋</span></summary>
+        <form id="names-form">
+          <label class="input-label" for="tv-name-input">TV name</label
+          ><input
+            id="tv-name-input"
+            maxlength="60"
+            required
+            placeholder="My TV"
+          /><label class="input-label" for="room-name-input">Room name</label
+          ><input
+            id="room-name-input"
+            maxlength="60"
+            required
+            placeholder="Living room"
+          /><button class="primary" type="submit">Save names</button>
+          <p class="hint">Saved only on the computer running this remote.</p>
+        </form>
+      </details>
+      <footer>
+        <span>Local connection · Your Mac stays on</span
+        ><button id="help">Add to Home Screen ↗</button>
+      </footer>
+      <p id="message" role="status" aria-live="polite"></p>
+      <aside id="setup" hidden>
+        <strong>Connect this phone</strong>
+        <p>Open the private pairing link from your Mac on the same Wi-Fi.</p>
+      </aside>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

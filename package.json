@@ -1,0 +1,15 @@
+{
+  "name": "living-room-remote",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test test.mjs",
+    "check:privacy": "node scripts/check-privacy.mjs"
+  },
+  "description": "Local browser remote for Android TV with live view and touch controls",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  }
+}

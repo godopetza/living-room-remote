@@ -1,0 +1,15 @@
+{
+  "host": "127.0.0.1",
+  "port": 8765,
+  "device": "YOUR_TV_IP:5555",
+  "adb": "adb",
+  "ffmpeg": "ffmpeg",
+  "scrcpyServer": "/path/to/scrcpy-server",
+  "scrcpyVersion": "3.3.4",
+  "screenWidth": 1920,
+  "screenHeight": 1080,
+  "streamWidth": 960,
+  "streamHeight": 544,
+  "tvName": "My TV",
+  "roomName": "Living room"
+}
