@@ -1,8 +1,46 @@
 # Living Room Remote
 
+![Living Room Remote — your TV, within reach](docs/images/social-preview.jpg)
+
+**Browser remote available now · Native mobile app in development · MIT licensed**
+
 Control an Android TV from your phone browser: live screen, tap and swipe, directional pad, keyboard, volume and fullscreen. A computer on the same network bridges the phone to the TV over ADB. No cloud account or Node runtime dependencies.
 
 This is an early personal-use project, tested with an Android 9 TCL TV and iPhone Safari. It is not a universal TV remote: your TV must allow ADB debugging and scrcpy screen capture/input.
+
+## On your phone
+
+<table>
+  <tr><th>Remote</th><th>Touch TV</th><th>Keyboard</th></tr>
+  <tr>
+    <td><img src="docs/images/mobile-remote.jpg" width="250" alt="Mobile remote with directional pad, navigation and volume controls"></td>
+    <td><img src="docs/images/mobile-touch.jpg" width="250" alt="Touch TV preview with sample landscape footage, fullscreen and scrolling controls"></td>
+    <td><img src="docs/images/mobile-keyboard.jpg" width="250" alt="Phone keyboard mode for sending search text to a TV"></td>
+  </tr>
+</table>
+
+Turn your phone sideways and tap **Fullscreen** to expand the picture. Tap and swipe controls remain available.
+
+![Landscape fullscreen view with sample footage and a close button](docs/images/mobile-fullscreen.jpg)
+
+*Screenshots show the actual web interface with generic names and AI-generated scenic demo imagery. The landscape is a sample still, not a recording of a user's TV. No private TV footage is included.*
+
+## How it works
+
+```mermaid
+flowchart LR
+    Phone[Phone · Safari] <-->|Paired local connection| Computer[Computer · Node bridge]
+    Computer <-->|ADB + scrcpy| TV[Android TV]
+```
+
+1. Start the bridge on your computer and authorize its ADB connection to the TV.
+2. Open its private pairing link on your phone, on the same Wi-Fi.
+3. Use the remote buttons, tap the live TV image, or send text from the keyboard.
+4. Add the page to your Home Screen for quick access. Keep the computer awake while using it.
+
+### Native mobile app
+
+A native mobile app is in development. The Safari/browser remote is available today; there is no native app download or release date yet. The current browser version requires the computer bridge.
 
 ## What it does
 
@@ -86,3 +124,7 @@ Connection troubleshooting: confirm `adb devices` lists the TV as `device`, veri
 ## License and credits
 
 MIT for this project's code; see [LICENSE](LICENSE). It interoperates with [scrcpy](https://github.com/Genymobile/scrcpy) (Apache-2.0) and separately installed FFmpeg/ADB. Those projects retain their own licenses. This project is not affiliated with Apple, Google or TCL.
+
+## Project images
+
+The [social-preview image](docs/images/social-preview.jpg) is 1280 × 720 and ready for GitHub's repository social preview. All screenshots use the isolated documentation preview: `node scripts/preview-docs.mjs`, then open `http://127.0.0.1:8766/hero` or `/demo?mode=touch`. This preview does not read personal configuration or connect to a TV. Scenic demo artwork was generated with OpenAI ImageGen.

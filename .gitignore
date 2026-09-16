@@ -17,3 +17,7 @@ node_modules/
 *.jpeg
 *.png
 coverage/
+
+# Reviewed, public documentation assets only.
+!docs/images/*.jpg
+!docs/images/demo-footage.png
