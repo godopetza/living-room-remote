@@ -4,9 +4,15 @@
 
 **Browser remote available now · Native mobile app in development · MIT licensed**
 
-Control an Android TV from your phone browser: live screen, tap and swipe, directional pad, keyboard, volume and fullscreen. A computer on the same network bridges the phone to the TV over ADB. No cloud account or Node runtime dependencies.
+Control a compatible Android TV from a browser on your **phone, tablet, or computer**: live screen, tap and swipe, directional pad, keyboard, volume and fullscreen. A computer on the same network bridges your browser to the TV over ADB. No cloud account or Node runtime dependencies.
 
 This is an early personal-use project, tested with an Android 9 TCL TV and iPhone Safari. It is not a universal TV remote: your TV must allow ADB debugging and scrcpy screen capture/input.
+
+## Device support
+
+The controller is a responsive web app, designed for modern browsers on phones, tablets, and computers. Use touch on a phone or tablet, or click the controls with a mouse on desktop. There is no controller app to install.
+
+The verified setup is **iPhone Safari + a Mac bridge + an Android 9 TCL TV**. Other browser/device combinations are not all tested. The target TV needs authorized ADB access and compatible scrcpy capture/input; this does not mean every smart TV is supported.
 
 ## On your phone
 
@@ -23,18 +29,18 @@ Turn your phone sideways and tap **Fullscreen** to expand the picture. Tap and s
 
 ![Landscape fullscreen view with sample footage and a close button](docs/images/mobile-fullscreen.jpg)
 
-*Screenshots show the actual web interface with generic names and AI-generated scenic demo imagery. The landscape is a sample still, not a recording of a user's TV. No private TV footage is included.*
+*Screenshots show the actual web interface with generic names and AI-generated scenic demo imagery. The landscape is a sample still, not a recording of a user's TV. No private TV footage is included. The hand, tap ripple and response callout on the cover illustrate the interaction; they are not a recorded latency measurement.*
 
 ## How it works
 
 ```mermaid
 flowchart LR
-    Phone[Phone · Safari] <-->|Paired local connection| Computer[Computer · Node bridge]
+    Phone[Phone / tablet / computer · Browser] <-->|Paired local connection| Computer[Computer · Node bridge]
     Computer <-->|ADB + scrcpy| TV[Android TV]
 ```
 
 1. Start the bridge on your computer and authorize its ADB connection to the TV.
-2. Open its private pairing link on your phone, on the same Wi-Fi.
+2. Open its private pairing link in your chosen browser, on the same Wi-Fi.
 3. Use the remote buttons, tap the live TV image, or send text from the keyboard.
 4. Add the page to your Home Screen for quick access. Keep the computer awake while using it.
 
