@@ -220,6 +220,11 @@ export function createRemote({
         "/style.css": "style.css",
         "/icon.svg": "icon.svg",
         "/manifest.json": "manifest.json",
+        "/player": "player.html",
+        "/player.html": "player.html",
+        "/player.js": "player.js",
+        "/player.css": "player.css",
+        "/vendor/three.module.js": "vendor/three.module.js",
       };
       if (req.method !== "GET" || !files[path])
         return json(res, 404, { error: "Not found" });

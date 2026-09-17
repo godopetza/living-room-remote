@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0d120f" />
+    <title>Listening Room · 3D Player</title>
+    <link rel="stylesheet" href="/player.css" />
+    <style>.css-turntable{position:absolute;width:min(52vw,360px);aspect-ratio:1;left:50%;top:50%;transform:translate(-50%,-54%);border-radius:50%;background:repeating-radial-gradient(circle,#141b16 0 2px,#202a22 3px 4px);box-shadow:0 15px 35px #0008;border:12px solid #273228}.css-turntable:before{content:"";position:absolute;inset:30%;border-radius:50%;background:#d98a4e;border:10px solid #6d4930}.css-turntable:after{content:"";position:absolute;width:4px;height:4px;left:50%;top:50%;border-radius:50%;background:#d9e9ae;box-shadow:0 0 0 8px #20251f}.css-arm{position:absolute;width:42%;height:10px;left:56%;top:35%;background:#a1b0a0;border-radius:10px;transform:rotate(18deg);transform-origin:left center}.css-arm:before{content:"";position:absolute;width:22px;height:22px;left:-8px;top:-7px;border-radius:50%;background:#9eaa9b}.css-arm:after{content:"";position:absolute;width:34px;height:17px;right:-4px;bottom:-4px;background:#d98a4e;border-radius:4px}</style>
+  </head>
+  <body>
+    <main class="player-shell">
+      <header class="topline"><span class="mark">◉</span><span>LISTENING ROOM</span><span class="topline-right">LOCAL PLAYER · 3D</span></header>
+      <section class="player-grid">
+        <div class="stage-card">
+          <div id="turntable" aria-label="Interactive 3D vinyl player"></div>
+          <div id="turntable-fallback" class="css-turntable" aria-hidden="true"><span class="css-arm"></span></div>
+          <div class="stage-caption"><span class="status-dot"></span><span id="state">NOW PLAYING</span><span class="caption-separator">·</span><span>CAST AUDIO</span></div>
+        </div>
+        <aside class="lyrics-card">
+          <div class="track-kicker">01 / 12</div>
+          <h1 id="title">Midnight City</h1>
+          <p id="artist">M83 · Hurry Up, We're Dreaming</p>
+          <div class="art-chip"><span class="art-disc"></span><span>Artwork and lyrics follow the cast track</span></div>
+          <div class="lyrics" aria-live="polite">
+            <p>Waiting in the car</p><p>Waiting for the ride in the dark</p><p class="current">The night is young</p><p>And so are we</p><p>We can go anywhere</p><p>When the city lights come alive</p>
+          </div>
+          <div class="controls"><button id="prev" aria-label="Previous track">↶</button><button id="play" class="play" aria-label="Pause">Ⅱ</button><button id="next" aria-label="Next track">↷</button></div>
+          <div class="progress"><span id="elapsed">01:12</span><div><i></i></div><span>04:03</span></div>
+        </aside>
+      </section>
+      <footer><span>Tap the record to pause · Drag the tonearm to seek</span><a href="/">Open remote</a></footer>
+    </main>
+    <script type="module" src="/player.js"></script>
+  </body>
+</html>

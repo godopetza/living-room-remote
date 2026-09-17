@@ -116,6 +116,10 @@ Environment overrides: `REMOTE_HOST`, `PORT`, `TV_ADB_SERIAL`, `ADB_PATH`, `FFMP
 - To revoke all pairings: stop the server, delete `.local/token`, then restart and pair again.
 - App shortcuts and simulated input have the same effects as using your physical remote. Some apps restrict screen capture or injected input.
 
+## 3D vinyl player preview
+
+Open `/player` on the local bridge for a made-up listening-room player: a rotating record, tonearm, artwork slot, lyrics panel and playback controls. It is a visual prototype for the TV player, with a lightweight CSS fallback when a browser has no WebGL. The live cast metadata can be wired into the same surface once a song is actively playing and exposes its title, artist and artwork.
+
 ## Development
 
 ```sh
@@ -129,7 +133,7 @@ Connection troubleshooting: confirm `adb devices` lists the TV as `device`, veri
 
 ## License and credits
 
-MIT for this project's code; see [LICENSE](LICENSE). It interoperates with [scrcpy](https://github.com/Genymobile/scrcpy) (Apache-2.0) and separately installed FFmpeg/ADB. Those projects retain their own licenses. This project is not affiliated with Apple, Google or TCL.
+MIT for this project's code; see [LICENSE](LICENSE). It interoperates with [scrcpy](https://github.com/Genymobile/scrcpy) (Apache-2.0), separately installed FFmpeg/ADB, and vendors the Three.js browser module under its MIT license for the `/player` prototype. Those projects retain their own licenses. This project is not affiliated with Apple, Google or TCL.
 
 ## Project images
 
